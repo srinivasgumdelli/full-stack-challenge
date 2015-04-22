@@ -1,0 +1,7 @@
+<%= simple_form_for(@resource_site) do |f| %>
+  <%= link_to('Back to All Resource Sites', resource_sites_path) %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.button :submit, value: 'Save' %>
+<% end %>
