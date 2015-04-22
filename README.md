@@ -1,6 +1,9 @@
 Healthify Fullstack Engineer Coding Challenge
 =============================================
 
+## Submission, Deadline, and Duration
+When you are finished with the assignment, ensure that the latest version of the app is pushed to the master branch of this repository. The assignment must be submitted no later than this coming Sunday, April 26 2015.  We don't have an expectation that the assignment will take more than about a day, but you're free to spend as much time as you want.
+
 ## Background
 One of Healthify's main products is a platform from which
 a social worker may search for resource sites – homeless shelters, food pantries,
@@ -28,7 +31,7 @@ already written (the spec/ and features/ subdirectories) , but also feel free to
 Importantly, your final submission should pass all unit and integration tests.
 
 3. Develop a minimally stylized front end for the page listing the resource sites. You
-can see the screenshot left in the Github comments for one inspiration, but feel free
+can see the screenshot `FullStack_Challenge_Sample_Style.png` if want inspiration, but feel free
 to style this as you please. *One requirement for the frontend:* we want to remove the
 'Filter' button from this page; instead, we want the page to automatically update
 the list of resource sites when the user checks/unchecks an eligibility checkbox.
@@ -51,18 +54,14 @@ This is strictly optional.
 1. A map for the list of resource sites. Our resource sites all have addresses. It would be nice to display this information
 in a map on the resource sites index page. Add an integration with a geocoding API (e.g. Google Maps, SmartyStreetz) and display the resource sites as points on a map.
 
-2. Business hours. It could be very valuable to know which of these resource sites are actually open right now (and whether
-they'd be open on some hypothetical future date). Implement functionality to store a set of business hours on resource
-sites such that we can query for resource sites open right now or at some other predetermined time.
-
-3. Search by text. Right now we can filter by eligibility, but it would be nice to also be able to search by text queries.
+2. Search by text. Right now we can filter by eligibility, but it would be nice to also be able to search by text queries.
 Add functionality to permit searching or filtering by text queries on the resource sites index page.
 
-4. Sorting resource sites on the client side. Implement functionality to permit sorting our list of resource
+3. Sorting resource sites on the client side. Implement functionality to permit sorting our list of resource
 sites by (a) alphabetical order, and (b) the last `updated_at` date (you should be able to toggle sorting by ascending or
 descending order for either of these). Ensure that re-sorting does not require a page reload (i.e. implement the
 sorting logic on the client side).
 
-5. Your own idea! If you have a particular talent, can spot something that would be a killer feature for this
+4. Your own idea! If you have a particular talent, can spot something that would be a killer feature for this
 app, or even if there were parts of the current codebase that you think should be refactored, feel free to
 show off your stuff with your own new feature or refactoring of the current codebase.
