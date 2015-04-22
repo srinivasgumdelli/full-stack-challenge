@@ -79,7 +79,7 @@ describe ResourceSitesController, type: :controller do
     specify { assert_instance_variables_assigned(:resource_site) }
 
     context 'when the new resource site is successfully updated' do
-      it 'redirects to the resource site show page with a success flash about creating a site' do
+      it 'redirects to the resource site show page with a success flash about updating a site' do
         do_request
         expect(response).to redirect_to(resource_site_path(resource_site))
         expect(success_flash).to include('updated')
@@ -91,7 +91,7 @@ describe ResourceSitesController, type: :controller do
         { resource_site: { name: '', address: 'New York', description: 'Nondescript.' } }
       end
 
-      it 're-renders the new resource site page with an alert flash containing relevant errors' do
+      it 're-renders the edit resource site page with an alert flash containing relevant errors' do
         do_request
         expect(response).to render_template(:edit)
         expect(alert_flash).to include('Name can\'t be blank')
