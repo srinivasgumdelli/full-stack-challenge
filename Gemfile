@@ -2,13 +2,16 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
 gem 'pg'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '>= 3.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'factory_girl_rails'
 gem 'factory_girl'
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'bootstrap-sass', '~> 3.3.4'
+gem 'autoprefixer-rails'
+gem 'smart_listing'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -29,4 +32,3 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
 end
-
