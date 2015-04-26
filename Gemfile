@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'autoprefixer-rails'
 gem 'smart_listing'
+gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails'

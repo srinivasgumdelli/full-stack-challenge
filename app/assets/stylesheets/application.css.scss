@@ -15,9 +15,7 @@
 @import "bootstrap";
 
 /*we'll be using navbar-fixed-top which will overlay the content, add padding to compensate the overlay*/
-body {
-  padding-top: 70px;
-}
+body { padding-top: 70px; }
 
 /*The ul has padding by default, remove that for the resource sites list*/
 ul.resource-sites-list,
