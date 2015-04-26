@@ -1,6 +1,7 @@
 class ResourceSitesController < ApplicationController
   def index
     @resource_sites = ResourceSite.all
+    @eligibilities = Eligibility.all
   end
 
   def show
