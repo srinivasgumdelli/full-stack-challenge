@@ -33,3 +33,10 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
 end
+
+# for heroku
+group :production do
+  gem 'rails_12factor'
+end
+
+ruby "2.2.0"
