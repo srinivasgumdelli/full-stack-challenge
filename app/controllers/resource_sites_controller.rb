@@ -1,6 +1,11 @@
 class ResourceSitesController < ApplicationController
   def index
-    @resource_sites = ResourceSite.all
+    @eligibility_ids = params[:eligibilities]
+    if @eligibility_ids.nil?
+      @resource_sites = ResourceSite.all
+    else
+      @resource_sites = ResourceSite.where(eligibility_id: @eligibility_ids)
+    end
     @eligibilities = Eligibility.all
   end
 
@@ -43,13 +48,13 @@ class ResourceSitesController < ApplicationController
 
     resource_site.destroy
     redirect_to resource_sites_path, flash: {
-      success: "The resource site '#{resource_site.name}' was deleted."
-    }
+                                       success: "The resource site '#{resource_site.name}' was deleted."
+                                   }
   end
 
   private
 
   def resource_site_params
-    params.require(:resource_site).permit(:name, :description, :address)
+    params.require(:resource_site).permit(:name, :description, :address, :eligibility_id )
   end
 end

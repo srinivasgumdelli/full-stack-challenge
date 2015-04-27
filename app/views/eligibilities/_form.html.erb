@@ -1,0 +1,6 @@
+<%= simple_form_for(@eligibility) do |f| %>
+  <%= link_to('Back to All Eligibilities', eligibilities_path) %>
+  <%= f.input :eligibility%>
+  <%= f.input :description %>
+  <%= f.button :submit, value: 'Save' %>
+<% end %>

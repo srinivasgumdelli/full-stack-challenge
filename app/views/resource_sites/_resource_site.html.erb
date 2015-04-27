@@ -1,16 +1,21 @@
 <div class="panel panel-primary col-sm-12">
   <div class="panel-head">
-    <h3 class="text-warning"><%= resource_site.name %></h3>
+    <h4 class="text-warning"><%= resource_site.name %></h4>
   </div>
   <div class="panel-body">
     <p>
+      <b>Address: </b>
       <%= resource_site.address %>
     </p>
     <p>
+      <b>Details: </b>
       <%= resource_site.description%>
     </p>
-    <p>
-      <%= resource_site.eligibility_id%>
+    <p class="inline">
+     <b>Eligibilty:</b>
+      <span class="label label-default">
+        <%= Eligibility.find(resource_site.eligibility_id).eligibility %>
+      </span>
     </p>
   </div>
 </div>
