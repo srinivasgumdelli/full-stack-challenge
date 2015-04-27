@@ -1,8 +1,13 @@
 <%= simple_form_for(@resource_site) do |f| %>
-  <%= link_to('Back to All Resource Sites', resource_sites_path) %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.input :eligibility_id%>
-  <%= f.button :submit, value: 'Save' %>
+    <%= link_to('Back to All Resource Sites', resource_sites_path) %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <div class="control-group">
+      <label class="control-label">Eligibility</label>
+      <div class="controls">
+          <%= f.collection_radio_buttons :eligibility_id, Eligibility.all, :id, :eligibility, :item_wrapper_class => 'radio-inline' %>
+      </div>
+    </div>
+    <%= f.button :submit, value: 'Save' %>
 <% end %>

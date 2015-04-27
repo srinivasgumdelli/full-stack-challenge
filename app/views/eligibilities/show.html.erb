@@ -1,0 +1,17 @@
+<% provide(:title, @eligibility.eligibility) %>
+
+<h1><%= @eligibility.eligibility%></h1>
+<%= link_to('Back to All Eligibilities', eligibilities_path) %>
+<%= link_to('Edit this Eligibility', edit_eligibility_path(@eligibility)) %>
+<%= link_to('Delete this Eligibility', @eligibility, method: :delete,
+  data: {confirm: 'Are you sure you want to delete this eligibility?'}) %>
+
+<div>
+  <strong>Eligibility:</strong>
+  <span><%= @eligibility.eligibility%></span>
+</div>
+
+<div>
+  <strong>Description:</strong>
+  <span><%= @eligibility.description %></span>
+</div>
