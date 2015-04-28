@@ -1,5 +1,9 @@
 Healthify Fullstack Engineer Coding Challenge
 =============================================
+## Status
+The app is complete but does not have tests, it is currently deployed to heroku (https://pure-wildwood-8401.herokuapp.com/). The filter button hasn't been worked on. Will continue working on cleaning up the app, adding tests and removing the filter button.
+
+default user (also the admin): user@healthify.com, password: healthify
 
 ## Submission, Deadline, and Duration
 When you are finished with the assignment, ensure that the latest version of the app is pushed to the master branch of this repository. The assignment must be submitted no later than this coming Sunday, April 26 2015.  We don't have an expectation that the assignment will take more than about a day, but you're free to spend as much time as you want.
