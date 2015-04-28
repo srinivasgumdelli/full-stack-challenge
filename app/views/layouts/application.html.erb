@@ -13,42 +13,20 @@
 <%= render 'shared/navigation_bar' %>
 <div id="main-container" class="container-fluid">
   <div class="row">
-    <div class="col-sm-3 col-md-2 sidebar">
-      <div id="main-menu">
-        <div class="list-group panel">
-          <% if params[:controller] == 'resource_sites' && params[:action] == 'index'%>
-              <a href="#eligibility" class="list-group-item list-group-item-info" data-toggle="collapse" data-parent="#main-menu"><span class="glyphicon glyphicon-chevron-down pull-right"></span> ELIGIBILITY</a>
-              <div class="collapse" id="eligibility">
-                <%= form_tag resource_sites_path, :method => :get, :id => 'resource-site-form'  do %>
-                    <% @eligibilities.each do |eligibility| %>
-                        <span class="list-group-item">
-                          <%= check_box_tag 'eligibilities[]', eligibility.id, :id => 'eligibility-checkbox' %>
-                          <%= eligibility.eligibility %>
-                        </span>
-                    <% end %>
-                    <%= submit_tag  'Filter', :class => 'btn btn-block '%>
-                <% end %>
-              </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div id="main" class="col-sm-9 col-md-10 main">
+    <div class="container">
       <% if flash[:success] %>
           <p class="alert alert-success alert-dismissable"><%= flash[:success] %></p>
       <% end %>
       <% if flash[:alert] %>
           <p class="alert alert-danger alert-dismissable"><%= alert %></p>
       <% end %>
-      <%= yield %>
     </div>
+    <%# Restrict the side bar to the index page while viewing the set of resoruce sites only %>
+    <% if params[:controller] == 'resource_sites' && params[:action] == 'index'%>
+        <%= render 'shared/resource_sites_sidebar' %>
+    <% end %>
+    <%= yield %>
   </div>
 </div>
-
-<script>
-//    $(window).on('load resize', function() {
-//        $('body').css({"padding-top": $(".navbar").height() + 30 + "px"});
-//    });
-</script>
 </body>
 </html>

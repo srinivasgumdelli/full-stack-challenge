@@ -1,0 +1,14 @@
+<div class="col-sm-3 col-md-2 sidebar affix">
+  <div class="list-group-item list-group-item-info" >ELIGIBILITY</div>
+  <%= form_tag resource_sites_path, :method => :get, :id => 'resource-site-form'  do %>
+      <% @eligibilities.each do |eligibility| %>
+          <span class="list-group-item">
+            <%= check_box_tag 'eligibilities[]', eligibility.id,
+                              (not @eligibility_ids.nil?) && @eligibility_ids.include?(eligibility.id.to_s) ? true : false,
+                              :id => 'eligibility-checkbox' %>
+            <%= eligibility.eligibility %>
+          </span>
+      <% end %>
+      <%= submit_tag  'Filter', :class => 'btn btn-block '%>
+  <% end %>
+</div>
