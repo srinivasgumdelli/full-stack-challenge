@@ -1,13 +1,25 @@
-<%= simple_form_for(@resource_site) do |f| %>
-    <%= link_to('Back to All Resource Sites', resource_sites_path) %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description %>
-    <div class="control-group">
-      <label class="control-label">Eligibility</label>
-      <div class="controls">
-          <%= f.collection_radio_buttons :eligibility_id, Eligibility.all, :id, :eligibility, :item_wrapper_class => 'radio-inline' %>
-      </div>
-    </div>
-    <%= f.button :submit, value: 'Save' %>
-<% end %>
+<fieldset>
+  <div class="container">
+    <%= simple_form_for(@resource_site) do |f| %>
+        <% if @resource_site.new_record? %>
+            <legend>New Resource</legend>
+            <%= link_to('Back to All Resource Sites', resource_sites_path) %>
+        <% else %>
+            <legend>Edit <i class="text-warning"><%= @resource_site.name %></i></legend>
+            <%= link_to('Back to this Resource Site\'s Details', resource_site_path) %>
+        <% end %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :description %>
+        <div class="control-group">
+          <label class="control-label">Eligibility</label>
+          <div class="controls">
+            <%= f.collection_radio_buttons :eligibility_id, Eligibility.all, :id, :eligibility, :item_wrapper_class => 'radio-inline' %>
+          </div>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, value: 'Save' %>
+        </div>
+    <% end %>
+  </div>
+</fieldset>
