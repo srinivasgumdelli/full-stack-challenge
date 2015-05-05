@@ -1,5 +1,6 @@
 class EligibilitiesController < ApplicationController
   before_action :require_admin, :except => [:index]
+
   def index
     @eligibilities = Eligibility.all
   end
@@ -16,7 +17,7 @@ class EligibilitiesController < ApplicationController
     @eligibility = Eligibility.new(eligibility_params)
 
     if @eligibility.save
-      redirect_to eligibility_path(@eligibility), flash: { success: 'Resource site created.' }
+      redirect_to eligibility_path(@eligibility), flash: { success: 'Eligibility created.' }
     else
       flash.now[:alert] = @eligibility.errors.full_messages.to_sentence
       render :new
@@ -31,7 +32,7 @@ class EligibilitiesController < ApplicationController
     @eligibility = Eligibility.find(params[:id])
 
     if @eligibility.update(eligibility_params)
-      redirect_to eligibility_path(@eligibility), flash: { success: 'Resource site updated.' }
+      redirect_to eligibility_path(@eligibility), flash: { success: 'Eligibility updated.' }
     else
       flash.now[:alert] = @eligibility.errors.full_messages.to_sentence
       render :edit
@@ -41,8 +42,12 @@ class EligibilitiesController < ApplicationController
   def destroy
     eligibility = Eligibility.find(params[:id])
 
-    eligibility.destroy
-    redirect_to eligibilities_path, flash: { success: "The eligibility '#{eligibility.eligibility}' was deleted." }
+    if eligibility.destroy
+      redirect_to eligibilities_path, flash: { success: "The eligibility '#{eligibility.eligibility}' was deleted." }
+    else
+      redirect_to eligibilities_path,
+                  flash: {alert: 'The eligibility could not be deleted. Are there any resource sites with this eligibility?'}
+    end
   end
 
   private
