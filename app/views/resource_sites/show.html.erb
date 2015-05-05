@@ -1,5 +1,5 @@
 <% provide(:title, @resource_site.name) %>
-<div class="container ">
+<div class="container show-container">
   <%= link_to('Back to All Resource Sites', resource_sites_path, :class => 'btn btn-primary') %>
   <%= link_to('Edit this Resource Site', edit_resource_site_path(@resource_site), :class => 'btn btn-primary') %>
   <%= link_to('Delete this Resource Site', @resource_site, method: :delete,

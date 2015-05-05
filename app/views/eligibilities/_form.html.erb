@@ -1,6 +1,18 @@
-<%= simple_form_for(@eligibility) do |f| %>
-  <%= link_to('Back to All Eligibilities', eligibilities_path) %>
-  <%= f.input :eligibility%>
-  <%= f.input :description %>
-  <%= f.button :submit, value: 'Save' %>
-<% end %>
+<fieldset>
+  <div class="container form-custom">
+    <%= simple_form_for(@eligibility) do |f| %>
+        <% if @eligibility.new_record? %>
+            <legend>New Eligibility</legend>
+            <%= link_to('Back to all Eligibilities', eligibilities_path) %>
+        <% else %>
+            <legend>Edit <i class="text-warning"><%= @eligibility.eligibility%></i></legend>
+            <%= link_to('Back to this Eligibility\'s Details', eligibility_path) %>
+        <% end %>
+        <%= f.input :eligibility%>
+        <%= f.input :description %>
+        <div class="form-actions">
+          <%= f.button :submit, value: 'Save' %>
+        </div>
+    <% end %>
+  </div>
+</fieldset>
