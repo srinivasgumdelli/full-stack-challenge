@@ -29,12 +29,14 @@ eligibility_seeds = [
     {:eligibility=>"Children", :description=>"Children Only"},
     {:eligibility=>"Test Eligibility", :description=>"Test Eligibility Only"}
 ]
-
-user_seed = {:email=>"user@healthify.com", :password=>"healthify", :password_confirmation=>"healthify", :admin=>true}
+user_seeds = [ {:email=>"user@healthify.com", :password=>"healthify", :password_confirmation=>"healthify", :admin=>true},
+              {:email=>"srinivasgumdelli@gmail.com", :password=>"srinivasgumdelli", :password_confirmation=>"srinivasgumdelli", :admin=>false}
+]
 
 ActiveRecord::Base.connection.execute("TRUNCATE TABLE resource_sites, eligibilities RESTART IDENTITY")
+User.delete_all
 ResourceSite.delete_all
 Eligibility.delete_all
-User.create(user_seed)
+user_seeds.each { |us| User.create(us) }
 eligibility_seeds.each { |es| Eligibility.create(es) }
 resource_site_seeds.each { |rss| ResourceSite.create(rss) }

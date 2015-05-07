@@ -56,7 +56,7 @@ class EligibilitiesController < ApplicationController
   end
 
   def require_admin
-    unless current_user.admin?
+    unless user_signed_in? && current_user.admin?
       flash[:alert] = 'You require admin privileges for editing eligibilities'
       redirect_to root_path
     end
