@@ -1,24 +1,32 @@
-<div id="main" class="col-sm-9 col-md-10 main pull-right">
-  <div class="panel panel-default col-sm-12">
-    <div class="panel-head">
-
-      <h3 class="text-warning"><span class="glyphicon glyphicon glyphicon-pushpin"></span> <%= resource_site.name %></h3>
-    </div>
-    <div class="panel-body">
-      <p>
-        <b>Address: </b>
-        <%= resource_site.address %>
-      </p>
-      <p>
-        <b>Details: </b>
-        <%= resource_site.description%>
-      </p>
-      <p class="inline">
-        <b>Eligibilty:</b>
-      <span class="label label-default">
-        <%= Eligibility.find(resource_site.eligibility_id).eligibility %>
-      </span>
-      </p>
+<div class="resource-site-cell">
+  <div id="main" class="col-sm-9 col-md-10 main pull-right">
+    <div class="panel panel-default col-sm-12">
+      <div class="panel-head">
+        <h3 class="text-warning resource-site-name">
+          <span class="glyphicon glyphicon glyphicon-plus"></span> <%= link_to(resource_site.name, resource_site_path(resource_site)) %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          <span class="glyphicon glyphicon glyphicon-map-marker"></span>
+          <b>Address: </b>
+          <span class="resource-site-address">
+            <%= resource_site.address %>
+          </span>
+        </p>
+        <p class="resource-site-description">
+          <span class="glyphicon glyphicon glyphicon-info-sign"></span>
+          <b>Details: </b>
+          <%= resource_site.description%>
+        </p>
+        <p class="inline" id="resource-site-eligibility">
+          <span class="glyphicon glyphicon glyphicon-tags"></span>
+          <b>Eligibilty: </b>
+          <span class="label label-default">
+            <%= Eligibility.find(resource_site.eligibility_id).eligibility %>
+          </span>
+        </p>
+      </div>
     </div>
   </div>
 </div>
