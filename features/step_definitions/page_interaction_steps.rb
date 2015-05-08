@@ -13,10 +13,14 @@ When(/^I click the "(.*?)" button$/) do |button_text|
 end
 
 Then(/^there should be a success notice stating "(.*?)"$/) do |success_message|
-  expect(page).to have_selector('.flashes .success', text: success_message)
+  expect(page).to have_selector('.container .alert-success', text: success_message)
 end
 
 Then(/^I should see the text "(.*?)"$/) do |text|
   expect(page).to have_text(text)
 end
 
+
+And(/^there should be an alert stating "([^"]*)"$/) do |alert_message|
+  expect(page).to have_selector('.container .alert-danger', text: alert_message)
+end
