@@ -22,9 +22,8 @@
         <p class="inline" id="resource-site-eligibility">
           <span class="glyphicon glyphicon glyphicon-tags"></span>
           <b>Eligibilty: </b>
-          <span class="label label-default">
-            <%= Eligibility.find(resource_site.eligibility_id).eligibility %>
-          </span>
+          <%= link_to(Eligibility.find(resource_site.eligibility_id).eligibility,
+                      eligibility_path(resource_site.eligibility_id), class:'label label-default') %>
         </p>
       </div>
     </div>

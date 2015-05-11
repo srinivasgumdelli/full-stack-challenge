@@ -1,4 +1,6 @@
 class ResourceSitesController < ApplicationController
+  before_filter :require_logged_in, :except => [:index]
+
   def index
     @eligibility_ids = params[:eligibilities]
     if @eligibility_ids.nil?
@@ -56,5 +58,12 @@ class ResourceSitesController < ApplicationController
 
   def resource_site_params
     params.require(:resource_site).permit(:name, :description, :address, :eligibility_id )
+  end
+
+  def require_logged_in
+    unless user_signed_in?
+      flash[:alert] = 'You need to be signed in'
+      redirect_to new_user_session_path
+    end
   end
 end
